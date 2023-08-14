@@ -1,0 +1,9 @@
+{
+    "checkAdminPassword":"select id,username from \"admin\" where \"username\"=$1 and \"password\"=$2 and \"is_use\"=true",
+    "updateAdminToken":"update \"admin\" set \"token\"=$1,\"token_create\"=$2,\"token_expired\"=$3 where \"username\"=$4 and \"is_use\"=true",
+    "updateUserToken":"update \"identity_user\" set \"token\"=$1,\"token_create\"=$2,\"token_expired\"=$3 where \"username\"=$4 and \"is_use\"=true",
+    "getById":"select * from login where \"Id\"=$1",
+    "checkUserPassword":"select id,username,password,company_id,token from identity_user where \"username\"=$1 and \"is_use\"=true",
+    "getByUser":"select username from identity_user where \"username\"=$1 and \"is_use\"=true limit 1",
+    "getByAdmin":"select username from \"admin\" where \"id\"=$1 and \"is_use\"=true limit 1"
+}

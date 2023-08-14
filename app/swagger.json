@@ -1,0 +1,3755 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "PMRP Project ",
+        "description": "Application Programming Interface (API)"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Users",
+            "description": "API for users in the system"
+        },
+        {
+            "name": "Login",
+            "description": "API for Login in the system"
+        },
+        {
+            "name": "Company",
+            "description": "API for Company in the system"
+        },
+        {
+            "name": "Material",
+            "description": "API for Material in the system"
+        },
+        {
+            "name": "Product",
+            "description": "API for Product in the system"
+        },
+        {
+            "name": "ProductPlaning",
+            "description": "API for ProductPlaning in the system"
+        },
+        {
+            "name": "MaterialPlaning",
+            "description": "API for MaterialPlaning in the system"
+        },
+        {
+            "name": "Upload",
+            "description": "API for Upload in the system"
+        },
+        {
+            "name": "Static",
+            "description": "API for GET Static File in the system"
+        },
+        {
+            "name": "Project",
+            "description": "API for Project in the system"
+        }
+    ],
+    "paths": {
+        "/product/del": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/static/{code}": {
+            "get": {
+                "tags": [
+                    "Static"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "code",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "File"
+                    }
+                }
+            }
+        },
+        "/materialPlaning/FilterMaterialConsumption": {
+            "post": {
+                "tags": [
+                    "MaterialPlaning"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "year": {
+                                    "type": "integer",
+                                    "example": 2020
+                                },
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "oem_id"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": [
+                                {
+                                    "no": "c-mat0003",
+                                    "name": "crop-55a",
+                                    "material_type": "Type R2D2",
+                                    "material_type_id": "55aef18c-fa56-41f8-8373-a973b3b78a40",
+                                    "material_unit": "Piece",
+                                    "material_unit_id": "505a84a4-6c71-4fbf-9dbd-8c63644221f5",
+                                    "material_spec": "S400",
+                                    "material_spec_id": "1d45d208-ac0c-4916-a321-13f3317c651b",
+                                    "material_size": "M",
+                                    "material_size_id": "3f207bfd-6d76-451a-9ae3-089b6e856aa7",
+                                    "m1": 0,
+                                    "m2": 0,
+                                    "m3": 0,
+                                    "m4": 0,
+                                    "m5": 0,
+                                    "m6": 0,
+                                    "m7": 0,
+                                    "m8": 0,
+                                    "m9": 0,
+                                    "m10": 0,
+                                    "m11": "1000",
+                                    "m12": 0,
+                                    "y": "1000"
+                                },
+                                {
+                                    "no": "c-mat0002",
+                                    "name": "crop-55b",
+                                    "material_type": "Type R2D2",
+                                    "material_type_id": "55aef18c-fa56-41f8-8373-a973b3b78a40",
+                                    "material_unit": "Piece",
+                                    "material_unit_id": "505a84a4-6c71-4fbf-9dbd-8c63644221f5",
+                                    "material_spec": "S400",
+                                    "material_spec_id": "1d45d208-ac0c-4916-a321-13f3317c651b",
+                                    "material_size": "M",
+                                    "material_size_id": "3f207bfd-6d76-451a-9ae3-089b6e856aa7",
+                                    "m1": 0,
+                                    "m2": 0,
+                                    "m3": 0,
+                                    "m4": 0,
+                                    "m5": 0,
+                                    "m6": 0,
+                                    "m7": 0,
+                                    "m8": 0,
+                                    "m9": 0,
+                                    "m10": 0,
+                                    "m11": "385",
+                                    "m12": 0,
+                                    "y": "385"
+                                },
+                                {
+                                    "no": "c-mat0001",
+                                    "name": "crop-55a",
+                                    "material_type": "Type R2D2",
+                                    "material_type_id": "55aef18c-fa56-41f8-8373-a973b3b78a40",
+                                    "material_unit": "Piece",
+                                    "material_unit_id": "505a84a4-6c71-4fbf-9dbd-8c63644221f5",
+                                    "material_spec": "S400",
+                                    "material_spec_id": "1d45d208-ac0c-4916-a321-13f3317c651b",
+                                    "material_size": "M",
+                                    "material_size_id": "3f207bfd-6d76-451a-9ae3-089b6e856aa7",
+                                    "m1": 0,
+                                    "m2": 0,
+                                    "m3": 0,
+                                    "m4": 0,
+                                    "m5": 0,
+                                    "m6": 0,
+                                    "m7": 0,
+                                    "m8": 0,
+                                    "m9": 0,
+                                    "m10": 0,
+                                    "m11": "25",
+                                    "m12": 0,
+                                    "y": "25"
+                                },
+                                {
+                                    "no": "test",
+                                    "name": "test",
+                                    "material_type": "Type R2D2",
+                                    "material_type_id": "55aef18c-fa56-41f8-8373-a973b3b78a40",
+                                    "material_unit": "Weight",
+                                    "material_unit_id": "6fac9f35-9749-476d-a24a-4c33061e59b7",
+                                    "material_spec": "S45CD",
+                                    "material_spec_id": "fc523aaa-12e5-4aa9-a2b4-d2ef190f9a33",
+                                    "material_size": "S",
+                                    "material_size_id": "47d5e1e0-378c-4cb8-902b-9c53f7ca47e3",
+                                    "m1": 0,
+                                    "m2": 0,
+                                    "m3": 0,
+                                    "m4": 0,
+                                    "m5": 0,
+                                    "m6": 0,
+                                    "m7": 0,
+                                    "m8": 0,
+                                    "m9": 0,
+                                    "m10": 0,
+                                    "m11": 0,
+                                    "m12": 0,
+                                    "y": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product/amountInOut": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "processType: 1 = RawMat,2 = WIP,3 = FG :::::: actionType InBound = true,OutBound=false",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                },
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "4e997521-e0b4-4d21-a53c-a59281696c66"
+                                },
+                                "no": {
+                                    "type": "string",
+                                    "example": "pc-xxx"
+                                },
+                                "processType": {
+                                    "type": "integer",
+                                    "example": 1
+                                },
+                                "actionType": {
+                                    "type": "boolean",
+                                    "example": true
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/product/findByNo": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "ecd200c5-4086-4c15-a42c-e86a4b855115",
+                                "no": "20Y6257860",
+                                "name": "PLUG",
+                                "product_model_id": "10ed502b-ad3d-45a6-a9a4-94ca0f635f75",
+                                "qty_unit": 1,
+                                "user_id": "716997e6-cd3f-42de-b223-b4d25c26c882",
+                                "oem_id": "ad5431b1-4136-4695-a1c2-7fe02b137d68",
+                                "wip_amount": 0,
+                                "fg_amount": 0,
+                                "is_active": true,
+                                "is_use": true,
+                                "is_scan_qr": null,
+                                "create_date": null,
+                                "update_date": null,
+                                "cut_amount": 0,
+                                "min_product": null
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/product/update_product/desktop": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                },
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "4e997521-e0b4-4d21-a53c-a59281696c66"
+                                },
+                                "no": {
+                                    "type": "string",
+                                    "example": "pc-xxx"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                    }
+                }
+            }
+        },
+        "/product/insert_log_product_edit_amount/desktop": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "product_id": {
+                                    "type": "string",
+                                    "example": 500
+                                },
+                                "user_id": {
+                                    "type": "string",
+                                    "example": "4e997521-e0b4-4d21-a53c-a59281696c66"
+                                },
+                                "edit_type": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                    }
+                }
+            }
+        },
+        "/product/filter_allItem": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                },
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "4e997521-e0b4-4d21-a53c-a59281696c66"
+                                },
+                                "no": {
+                                    "type": "string",
+                                    "example": {
+                                        "id": "1751b6ad-6747-47bd-b220-917158658634",
+                                        "no": "TC40224482",
+                                        "name": "BOLT SHIFT",
+                                        "product_model_id": "d2607ab7-5637-46e6-9919-e0b400f083da",
+                                        "qty_unit": 1,
+                                        "user_id": "0fc9e975-8bfa-43ff-9f6f-c31120c9c957",
+                                        "oem_id": "e9549a12-9b0d-4b10-b2ef-ac3607c42ab4",
+                                        "wip_amount": 0,
+                                        "fg_amount": 0,
+                                        "min_product": 2000,
+                                        "end_user_amount": "29",
+                                        "logistic_amount": "24",
+                                        "image": "{\"orgin_name\":\"5.png\",\"name\":\"f9f100f9-22de-4e2e-b83c-5b6144fd9fc8_5.png\",\"path\":\"Li91cGxvYWRzL1RDNDAyLTI0NDgtMi9mOWYxMDBmOS0yMmRlLTRlMmUtYjgzYy01YjYxNDRmZDlmYzhfNS5wbmc=\",\"mimetype\":\"image/png\",\"size\":109842}",
+                                        "description": null,
+                                        "sell_price": null,
+                                        "circle_time": null,
+                                        "sku_user": null,
+                                        "product_route_id": "3e824714-5b14-4671-9ea3-18aca8a70797",
+                                        "product_size_id": "8328f913-0a5c-4eea-8e24-fed7242b088d",
+                                        "product_color_id": "0a5348c3-35c9-445d-819b-3df5c4382902",
+                                        "image_name": "5.png",
+                                        "imaget_path": "Li91cGxvYWRzL1RDNDAyLTI0NDgtMi9mOWYxMDBmOS0yMmRlLTRlMmUtYjgzYy01YjYxNDRmZDlmYzhfNS5wbmc=",
+                                        "product_material_id": null,
+                                        "cut_amount": 178,
+                                        "is_assy": null,
+                                        "product_plants_item": null
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/product/summaryReport": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "example": {
+                                    "product_id": "29c5c02c-a9a5-400e-b698-a72fc0945189",
+                                    "no": "6C60639431",
+                                    "name": "JOINT,STR  PIPE",
+                                    "edit_type": false,
+                                    "amount": 50,
+                                    "project_name": "test_name4444",
+                                    "create_date": "2021-08-15T22:31:54.971Z"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/product/importExcel_Bomlist": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "oem id"
+                                },
+                                "no": {
+                                    "type": "string",
+                                    "example": "pc-xxx"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "file",
+                        "type": "file",
+                        "description": "file upload"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "model": "pc-067",
+                                    "status": false,
+                                    "error": "already Product no"
+                                },
+                                {
+                                    "model": "pc-062",
+                                    "status": true
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product/importExcel_Bomlist_Assy": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "oem id"
+                                },
+                                "no": {
+                                    "type": "string",
+                                    "example": "pc-xxx"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "file",
+                        "type": "file",
+                        "description": "file upload"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "model": "pc-067",
+                                    "status": false,
+                                    "error": "already Product no"
+                                },
+                                {
+                                    "model": "pc-062",
+                                    "status": true
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product/amountEnd_userInOut": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "processType: 1 = RawMat,2 = WIP,3 = FG :::::: actionType InBound = true,OutBound=false",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "example": "1751b6ad-6747-47bd-b220-917158658634"
+                                },
+                                "edit_type": {
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                    }
+                }
+            }
+        },
+        "/product/amountLogisticInOut": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "processType: 1 = RawMat,2 = WIP,3 = FG :::::: actionType InBound = true,OutBound=false",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "example": "1751b6ad-6747-47bd-b220-917158658634"
+                                },
+                                "edit_type": {
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                    }
+                }
+            }
+        },
+        "/product/getlog_detailFG": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "example": "89276ce8-605b-4253-8b35-3aceabebcb5f"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                            "amount": "34",
+                            "create_date": "2021-12-28T01:09:32.735Z",
+                            "fg_lot_no": "2222w"}
+                        }
+                    }
+                }
+            }
+        },
+        "/product/cuttingInOut": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                },
+                                "id": {
+                                    "type": "string",
+                                    "example": "1751b6ad-6747-47bd-b220-917158658634"
+                                },
+                                "edit_type": {
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                    }
+                }
+            }
+        },
+        "/company/findUserById": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "2140bc1b-8fbf-4775-b1e0-a28e1f5cbdfc",
+                                "company_id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                "name": "name user01 update",
+                                "sirname": "sirname user01",
+                                "username": "user01",
+                                "email": "email user01",
+                                "password": "p@ssw0rd",
+                                "mobile1": "mobile1 user01",
+                                "mobile2": "mobile2 user01",
+                                "detail": "detail user01 update",
+                                "is_active": true,
+                                "user_profile": "user_profile 01 update",
+                                "is_use": true,
+                                "user_profile_name": "user_profile_name 02",
+                                "user_profile_path": "user_profile_path 03",
+                                "document": [
+                                    {
+                                        "id": "a47503fb-6c32-4c64-92ba-dd1196c08f60",
+                                        "user_id": "2140bc1b-8fbf-4775-b1e0-a28e1f5cbdfc",
+                                        "document": "document 1 com1",
+                                        "create_date": "2020-10-25T17:00:00.000Z",
+                                        "is_use": true,
+                                        "document_name": "document_name 1 com1",
+                                        "document_path": "document_path 1 com1"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/productPlaning/productMonitoring/": {
+            "post": {
+                "tags": [
+                    "ProductPlaning"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "0c6437d3-2e60-436c-97de-aaf23ed766a1"
+                                },
+                                "year": {
+                                    "type": "integer",
+                                    "example": 2020
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": [
+                                {
+                                    "no": "pc-067",
+                                    "name": "part-xa067",
+                                    "product_model": "B2440S",
+                                    "qty_unit": 324,
+                                    "product_route": "route01",
+                                    "min_stk": 1,
+                                    "max_stk": 2,
+                                    "delivery": null,
+                                    "q1": 0,
+                                    "q2": 0,
+                                    "q3": 0,
+                                    "q4": 0,
+                                    "status": true,
+                                    "rank_a": 90,
+                                    "rank_b": 80,
+                                    "rank_c": 70,
+                                    "rank_d": 60,
+                                    "LQA": 0,
+                                    "LYA": 0,
+                                    "Q1": 0,
+                                    "Q2": 0,
+                                    "Q3": 0,
+                                    "Q4": 0
+                                },
+                                {
+                                    "no": "pc-068",
+                                    "name": "part-xa068",
+                                    "product_model": "B2440S",
+                                    "qty_unit": 324,
+                                    "product_route": "route01",
+                                    "min_stk": 1,
+                                    "max_stk": 2,
+                                    "delivery": null,
+                                    "q1": 0,
+                                    "q2": 0,
+                                    "q3": 0,
+                                    "q4": 0,
+                                    "status": true,
+                                    "rank_a": 90,
+                                    "rank_b": 80,
+                                    "rank_c": 70,
+                                    "rank_d": 60,
+                                    "LQA": 0,
+                                    "LYA": 0,
+                                    "Q1": 0,
+                                    "Q2": 0,
+                                    "Q3": 0,
+                                    "Q4": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/productPlaning/importReadOrderForcastByKTC": {
+            "post": {
+                "tags": [
+                    "ProductPlaning"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "oem id"
+                                },
+                                "year": {
+                                    "type": "string",
+                                    "example": "2020"
+                                },
+                                "month": {
+                                    "type": "string",
+                                    "example": "01"
+                                },
+                                "Excel": {
+                                    "type": "xlsx",
+                                    "example": "data.xlsx"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "file",
+                        "type": "file",
+                        "description": "file upload"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": [
+                                {
+                                    "id": "62ae4bbe-3e35-4754-9c8c-29be98cee439",
+                                    "no": "pc-067",
+                                    "name": "part-xa067",
+                                    "wip": 0,
+                                    "fg": 0,
+                                    "delivery": 0,
+                                    "amount_forcast": 0,
+                                    "in_hand": 0,
+                                    "pending": 0,
+                                    "status": true,
+                                    "n1": 200,
+                                    "n2": 300,
+                                    "n3": 400,
+                                    "n4": 500
+                                },
+                                {
+                                    "id": "a13ff0fe-b445-4af0-8490-eb39f84aa998",
+                                    "no": "pc-068",
+                                    "name": "part-xa068",
+                                    "wip": 0,
+                                    "fg": 0,
+                                    "delivery": 0,
+                                    "amount_forcast": 0,
+                                    "in_hand": 0,
+                                    "pending": 0,
+                                    "status": true,
+                                    "n1": 200,
+                                    "n2": 300,
+                                    "n3": 400,
+                                    "n4": 500
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/productPlaning/orderProduction/filter": {
+            "post": {
+                "tags": [
+                    "ProductPlaning"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "order_no":"" 
+                          
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "b3984b31-25fd-46a9-bbfc-788adcde72eb",
+                                    "order_no": "OP20220119-1",
+                                    "is_use": true,
+                                    "is_active": true,
+                                    "create_by": "716997e6-cd3f-42de-b223-b4d25c26c882",
+                                    "create_date": "2022-01-19T06:13:25.342Z",
+                                    "cancle_by": null,
+                                    "list_product": [
+                                        {
+                                            "id": "3d9ec11b-a824-4df2-86fe-f1f6c40563d3",
+                                            "no": "601251023",
+                                            "name": "JOINT, PIPE",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 1099,
+                                            "delivery_date": "11/11/1111",
+                                            "rm": null,
+                                            "cut": null,
+                                            "rrr": "t",
+                                            "length": "t",
+                                            "spec": null,
+                                            "use_pcs": 0,
+                                            "weitght": "t",
+                                            "qty_cut": null
+                                        },
+                                        {
+                                            "id": "3f1eccf2-3de9-408b-9383-9932cf54b0f8",
+                                            "no": "TC68214262",
+                                            "name": "PLUG (DRAIN) G1/2\"",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 240,
+                                            "delivery_date": "11/05/1999",
+                                            "rm": "H-22 G 1/2\"",
+                                            "cut": "0",
+                                            "rrr": "5",
+                                            "length": "5",
+                                            "spec": "SS400",
+                                            "use_pcs": 0,
+                                            "weitght": "5",
+                                            "qty_cut": null,
+                                            "dd_start": "11/02/1999",
+                                            "dd_off_line": "19/99/1999"
+                                        },
+                                        {
+                                            "id": "7c88bb98-f9ef-4a81-97d3-9277340a8433",
+                                            "no": "5T07827121",
+                                            "name": "JOINT,PIPE(L,G3/8)",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 200,
+                                            "rm": "T-22",
+                                            "cut": "0",
+                                            "spec": "SS400",
+                                            "use_pcs": 0,
+                                            "qty_cut": null
+                                        },
+                                        {
+                                            "id": "1751b6ad-6747-47bd-b220-917158658634",
+                                            "no": "TC40224482",
+                                            "name": "BOLT SHIFT",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 200,
+                                            "rm": "R-27",
+                                            "cut": "219",
+                                            "spec": "S45C",
+                                            "use_pcs": 7.3,
+                                            "qty_cut": 200
+                                        },
+                                        {
+                                            "id": "0746d02d-aaa7-45ef-95b1-76fe2b07efa4",
+                                            "no": "5T07827861",
+                                            "name": "JOINT,PIPE(1,HST)",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 199,
+                                            "rm": "R-40",
+                                            "cut": "59.2",
+                                            "spec": "SS400",
+                                            "use_pcs": 1.963466666666667,
+                                            "qty_cut": 199
+                                        },
+                                        {
+                                            "id": "285c244e-1bc1-43b3-9965-465cf579299d",
+                                            "no": "6C62638731",
+                                            "name": "PIN",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 150,
+                                            "rm": "R-20",
+                                            "cut": "152",
+                                            "spec": "SS400",
+                                            "use_pcs": 3.8,
+                                            "qty_cut": 150
+                                        },
+                                        {
+                                            "id": "ebc79d04-ce00-4542-8263-23cabb1bc2ba",
+                                            "no": "5T12421241",
+                                            "name": "JOINT,PIPE(M22-14)",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 110,
+                                            "rm": "H-27",
+                                            "cut": "50",
+                                            "spec": "SS400",
+                                            "use_pcs": 0.9166666666666666,
+                                            "qty_cut": 110
+                                        },
+                                        {
+                                            "id": "9ac08a2f-9d5b-45bb-8c36-52c22b058803",
+                                            "no": "5T07281291",
+                                            "name": "JOINT,PIPE,ASSY(UNLOADER)",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 100,
+                                            "rm": "E90 T17x25x28",
+                                            "cut": "53.7",
+                                            "spec": "S20C",
+                                            "use_pcs": 0.895,
+                                            "qty_cut": 100
+                                        },
+                                        {
+                                            "id": "7ebac535-0b06-4ac3-a648-ea46937f45f9",
+                                            "no": "TC40455321",
+                                            "name": "BOSS (CRUISE CONTROL)",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 60,
+                                            "rm": "H-17",
+                                            "cut": "144",
+                                            "spec": "S45C",
+                                            "use_pcs": 1.44,
+                                            "qty_cut": 60
+                                        },
+                                        {
+                                            "id": "4e617483-b7d2-4a81-ad0b-401b542dafdd",
+                                            "no": "MR00120212",
+                                            "name": "JOINT, PIPE",
+                                            "year": 2022,
+                                            "month": 1,
+                                            "order": 50,
+                                            "rm": "H-19",
+                                            "cut": "38",
+                                            "spec": "S20C",
+                                            "use_pcs": 0.31666666666666665,
+                                            "qty_cut": 50
+                                        }
+                                    ],
+                                    "list_header": {
+                                        "pbn_no": "t",
+                                        "cus_route": "t",
+                                        "po_no": "t",
+                                        "date_off_line": "t",
+                                        "date_loading": "t",
+                                        "osl": "t"
+                                    }
+                                }
+                                
+                                
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/productPlaning/orderProduction/cancle": {
+            "get": {
+                "tags": [
+                    "ProductPlaning"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+         
+                        }
+                    }
+                }
+            },
+            "/productPlaning/orderProduction/add": {
+                "post": {
+                    "tags": [
+                        "ProductPlaning"
+                    ],
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "body",
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "3a73cfb8-7c13-4803-a0bc-46c6d76db94b"
+                                    },
+                                    "user_id": {
+                                        "type": "string",
+                                        "example": "716997e6-cd3f-42de-b223-b4d25c26c882"
+                                    }
+                    
+                                }
+                            }
+                        }
+               
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "true",
+                            "schema": {
+                                "type": "object",
+                                "example": [
+ {
+                                    "item":"1",
+                                    "Product No": "601251023",
+                                    "Product Name": "JOIN,PIPE",
+                                    "WIP":"0",
+                                    "FG":"1",
+                                    "In Hand": "1",
+                                    "N1":"1100",
+                                    "N2":"1400",
+                                    "N3":"1100"
+
+                                }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+        
+        "/materialPlaning/updateMaterialForcast": {
+            "post": {
+                "tags": [
+                    "MaterialPlaning"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "amount": {
+                                    "type": "string",
+                                    "example": "200"
+                                },
+                                "product_amount": {
+                                    "type": "string",
+                                    "example": "600"
+                                },
+                                "product_forcast_id": {
+                                    "type": "string",
+                                    "example": "3fd9dd02-10df-4739-bc67-023d777b66a5"
+                                },
+                                "product_material_id": {
+                                    "type": "string",
+                                    "example": "8bfd6ac3-911a-453d-bec2-f5c41f406303"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/materialPlaning/FilterOrderForcast": {
+            "post": {
+                "tags": [
+                    "MaterialPlaning"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "no": {
+                                    "type": "string",
+                                    "example": "mat-03"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "00003A"
+                                },
+                                "year": {
+                                    "type": "string",
+                                    "example": "2020"
+                                },
+                                "month": {
+                                    "type": "string",
+                                    "example": "01"
+                                },
+                                "material_type_id": {
+                                    "type": "string",
+                                    "example": "0c6437d3-2e60-436c-97de-aaf23ed766a1"
+                                },
+                                "material_spec_id": {
+                                    "type": "string",
+                                    "example": "0c6437d3-2e60-436c-97de-aaf23ed766a1"
+                                },
+                                "material_size_id": {
+                                    "type": "string",
+                                    "example": "0c6437d3-2e60-436c-97de-aaf23ed766a1"
+                                },
+                                "material_supplier_id": {
+                                    "type": "string",
+                                    "example": "0c6437d3-2e60-436c-97de-aaf23ed766a1"
+                                },
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "0c6437d3-2e60-436c-97de-aaf23ed766a1"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": [
+                                {
+                                    "year_month": 202012,
+                                    "oem_id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                    "no": "c-mat0003",
+                                    "name": "crop-55a",
+                                    "material_type": "Type R2D2",
+                                    "material_unit": "Piece",
+                                    "material_spec": "S400",
+                                    "material_size": "M",
+                                    "buy_price": 500,
+                                    "in_hand_amount": 640,
+                                    "product_amount": 200,
+                                    "product_forcast_id": "3fd9dd02-10df-4739-bc67-023d777b66a5",
+                                    "product_material_id": "8bfd6ac3-911a-453d-bec2-f5c41f406303"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        
+        "/productPlaning/updateRealOrder": {
+            "post": {
+                "tags": [
+                    "ProductPlaning"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "no": {
+                                    "type": "string",
+                                    "example": "pc-076"
+                                },
+                                "year": {
+                                    "type": "string",
+                                    "example": "2020"
+                                },
+                                "month": {
+                                    "type": "string",
+                                    "example": "01"
+                                },
+                                "order": {
+                                    "type": "integer",
+                                    "example": 500
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/productPlaning/FilterOrderForcast": {
+            "post": {
+                "description": "",
+                "tags": [
+                    "ProductPlaning"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "oem id"
+                                },
+                                "year": {
+                                    "type": "string",
+                                    "example": "2020"
+                                },
+                                "month": {
+                                    "type": "string",
+                                    "example": "01"
+                                },
+                                "suggestion": {
+                                    "type": "integer",
+                                    "example": 2
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": [
+                                {
+                                    "id": "00026888-53ce-424d-bfb2-89aea51b26ff",
+                                    "no": "pc-076",
+                                    "name": "part-xa076",
+                                    "wip": 390,
+                                    "fg": 250,
+                                    "delivery": "250",
+                                    "amount_forcast": 0,
+                                    "in_hand": 640,
+                                    "pending": 0,
+                                    "n1": 200,
+                                    "n2": 300,
+                                    "n3": 400,
+                                    "n4": 500,
+                                    "suggestion": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/productPlaning/importReadOrderForcast": {
+            "post": {
+                "tags": [
+                    "ProductPlaning"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "oem id"
+                                },
+                                "year": {
+                                    "type": "string",
+                                    "example": "2020"
+                                },
+                                "month": {
+                                    "type": "string",
+                                    "example": "01"
+                                },
+                                "save": {
+                                    "type": "boolean",
+                                    "example": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "file",
+                        "type": "file",
+                        "description": "file upload"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": [
+                                {
+                                    "id": "62ae4bbe-3e35-4754-9c8c-29be98cee439",
+                                    "no": "pc-067",
+                                    "name": "part-xa067",
+                                    "wip": 0,
+                                    "fg": 0,
+                                    "delivery": 0,
+                                    "amount_forcast": 0,
+                                    "in_hand": 0,
+                                    "pending": 0,
+                                    "status": true,
+                                    "n1": 200,
+                                    "n2": 300,
+                                    "n3": 400,
+                                    "n4": 500
+                                },
+                                {
+                                    "id": "a13ff0fe-b445-4af0-8490-eb39f84aa998",
+                                    "no": "pc-068",
+                                    "name": "part-xa068",
+                                    "wip": 0,
+                                    "fg": 0,
+                                    "delivery": 0,
+                                    "amount_forcast": 0,
+                                    "in_hand": 0,
+                                    "pending": 0,
+                                    "status": true,
+                                    "n1": 200,
+                                    "n2": 300,
+                                    "n3": 400,
+                                    "n4": 500
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/company/getCapacityFactory": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string",
+                            "example": "100"
+                        }
+                    }
+                }
+            }
+        },
+        "/product/amountFGInOut": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "example": "00026888-53ce-424d-bfb2-89aea51b26ff"
+                                },
+                                "edit_type": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/product/amountWIPInOut": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "example": "00026888-53ce-424d-bfb2-89aea51b26ff"
+                                },
+                                "edit_type": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/material/amountInOut": {
+            "post": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "example": "53cd4c30-05ea-4591-aae8-720cc623a9ca"
+                                },
+                                "edit_type": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/material/findByNo": {
+            "get": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "id = oem_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "06ac64d4-7d34-405c-84f2-549c20cffffb",
+                                "no": "121050000",
+                                "name": "R-50",
+                                "amount": null,
+                                "material_size_id": "62bfbcb7-36b8-4179-961f-184d5211806b"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/material/update_material/desktop": {
+            "post": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                },
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "4e997521-e0b4-4d21-a53c-a59281696c66"
+                                },
+                                "no": {
+                                    "type": "string",
+                                    "example": "pc-xxx"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                    }
+                }
+            }
+        },
+        "/material/insert_log_material_edit_amount/desktop": {
+            "post": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "material_id": {
+                                    "type": "string",
+                                    "example": 500
+                                },
+                                "user_id": {
+                                    "type": "string",
+                                    "example": "4e997521-e0b4-4d21-a53c-a59281696c66"
+                                },
+                                "edit_type": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "example": 500
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                    }
+                }
+            }
+        },
+        "/material/gethistory": {
+            "get": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "material_id = id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "example": "1899c8de-7486-43e0-9f84-ddb5b80ccbb1"
+                                }
+                            }
+                        }
+                    }
+                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "amount": "1777776",
+                                "create_date": "2021-12-14T01:09:50.888Z",
+                                "mat_lot_no": "MAT20211214"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/product/importExcel": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "oem id"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "file",
+                        "type": "file",
+                        "description": "file upload"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "model": "pc-067",
+                                    "status": false,
+                                    "error": "already Product no"
+                                },
+                                {
+                                    "model": "pc-062",
+                                    "status": true
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product/filter": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "no": "",
+                                "name": "part",
+                                "product_model_id": "bd053048-4d6e-0fcc-b170-a3f7464234c8",
+                                "oem_id": "bd053048-0fcc-4d6e-b170-a3f7464234c8"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "604733df-3629-42eb-9ea2-3f55022f1bb4",
+                                    "no": "pc-001 update",
+                                    "name": "part-xa001",
+                                    "product_model_id": "6e571ae6-44f8-4478-abe5-5e3cb5f082fd",
+                                    "qty_unit": 456,
+                                    "user_id": "2140bc1b-8fbf-4775-b1e0-a28e1f5cbdfc",
+                                    "oem_id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                    "wip_amount": null,
+                                    "fg_amount": null,
+                                    "image": "image pc01",
+                                    "description": "description pc01 update",
+                                    "sell_price": 1450,
+                                    "circle_time": 4,
+                                    "sku_user": "sku_1234",
+                                    "product_route_id": "1db8e180-119b-47e4-bc90-18316dafa2f1",
+                                    "product_size_id": "bd053048-0fcc-4d6e-b170-a3f7464234c2",
+                                    "product_color_id": "bd053048-0fcc-4d6e-b170-a3f7464234c8",
+                                    "image_name": "image_name pc01",
+                                    "imaget_path": "image_path pc01",
+                                    "sku_system": "sku_system 001",
+                                    "product_material_id": "8bfd6ac3-911a-453d-bec2-f5c41f406303",
+                                    "material_id": "53cd4c30-05ea-4591-aae8-720cc623a9ca",
+                                    "wt_mtr": 346,
+                                    "c_leng": 7,
+                                    "cos_pc": 43
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product/findById": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "604733df-3629-42eb-9ea2-3f55022f1bb4",
+                                "no": "pc-001 update",
+                                "name": "part-xa001",
+                                "product_model_id": "6e571ae6-44f8-4478-abe5-5e3cb5f082fd",
+                                "qty_unit": 456,
+                                "user_id": "2140bc1b-8fbf-4775-b1e0-a28e1f5cbdfc",
+                                "oem_id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                "wip_amount": null,
+                                "fg_amount": null,
+                                "image": "image pc01",
+                                "description": "description pc01 update",
+                                "sell_price": 1450,
+                                "circle_time": 4,
+                                "sku_user": "sku_1234",
+                                "product_route_id": "1db8e180-119b-47e4-bc90-18316dafa2f1",
+                                "product_size_id": "bd053048-0fcc-4d6e-b170-a3f7464234c2",
+                                "product_color_id": "bd053048-0fcc-4d6e-b170-a3f7464234c8",
+                                "image_name": "image_name pc01",
+                                "imaget_path": "image_path pc01",
+                                "sku_system": "sku_system 001",
+                                "product_material_id": "8bfd6ac3-911a-453d-bec2-f5c41f406303",
+                                "material_id": "53cd4c30-05ea-4591-aae8-720cc623a9ca",
+                                "wt_mtr": 346,
+                                "c_leng": 7,
+                                "cos_pc": 43
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/product/update": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "604733df-3629-42eb-9ea2-3f55022f1bb4",
+                                "no": "pc-001 update",
+                                "name": "part-xa001",
+                                "product_model_id": "6e571ae6-44f8-4478-abe5-5e3cb5f082fd",
+                                "qty_unit": "456",
+                                "oem_id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                "image": "image pc01",
+                                "description": "description pc01 update",
+                                "sell_price": "1450",
+                                "circle_time": "4",
+                                "sku_user": "sku_1234",
+                                "product_route_id": "1db8e180-119b-47e4-bc90-18316dafa2f1",
+                                "product_size_id": "bd053048-0fcc-4d6e-b170-a3f7464234c2",
+                                "product_color_id": "bd053048-0fcc-4d6e-b170-a3f7464234c8",
+                                "image_name": "image_name pc01",
+                                "image_path": "image_path pc01",
+                                "sku_system": "sku_system 001",
+                                "material_id": "53cd4c30-05ea-4591-aae8-720cc623a9ca",
+                                "wt_mtr": "346",
+                                "c_leng": "7",
+                                "cos_pc": "43",
+                                "product_material_id": "8bfd6ac3-911a-453d-bec2-f5c41f406303"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/product/add": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "no": "pc-001",
+                                "name": "part-xa001",
+                                "product_model_id": "6e571ae6-44f8-4478-abe5-5e3cb5f082fd",
+                                "qty_unit": "456",
+                                "oem_id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                "image": "image pc01",
+                                "description": "description pc01",
+                                "sell_price": "1450",
+                                "circle_time": "4",
+                                "sku_user": "sku_1234",
+                                "product_route_id": "1db8e180-119b-47e4-bc90-18316dafa2f1",
+                                "product_size_id": "bd053048-0fcc-4d6e-b170-a3f7464234c2",
+                                "product_color_id": "bd053048-0fcc-4d6e-b170-a3f7464234c8",
+                                "image_name": "image_name pc01",
+                                "image_path": "image_path pc01",
+                                "sku_system": "sku_system 001",
+                                "material_id": "53cd4c30-05ea-4591-aae8-720cc623a9ca",
+                                "wt_mtr": "346",
+                                "c_leng": "4",
+                                "cos_pc": "43"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+
+        "/company/findOEMByCompanyId": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "id = oem_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "0c6437d3-2e60-436c-97de-aaf23ed766a3",
+                                    "name": "oem 1 com 1 up1",
+                                    "logo": "logo oem 1",
+                                    "logo_name": "logo_name oem 1",
+                                    "logo_path": "logo_path oem 1"
+                                },
+                                {
+                                    "id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                    "name": "oem 1 com 1 up2",
+                                    "logo": "logo oem 2",
+                                    "logo_name": "logo_name oem 2",
+                                    "logo_path": "logo_path oem 2"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product/getProductColor": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "id = oem_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "bc1ab488-613d-4bf6-9ca4-2d3bc7453ec3",
+                                    "name": "red"
+                                },
+                                {
+                                    "id": "aa8d1f1b-qca9-4234-8afa-1df0ea8cc206",
+                                    "name": "blue"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product/getProductSize": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "id = oem_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "bc1a7488-613d-4bf6-9ca4-2d3bc7453ec3",
+                                    "name": "SX"
+                                },
+                                {
+                                    "id": "aa8d1f1b-qca9-4264-8afa-1df0ea8cc206",
+                                    "name": "M"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product/getProductRoute": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "id = oem_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "bc1a7488-613d-4bf6-9ca4-2d3cc7453ec3",
+                                    "name": "Route 1"
+                                },
+                                {
+                                    "id": "aa8d1f1b-0ca9-4264-8afa-1df0ea8cc206",
+                                    "name": "Route 2"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product/getProductModel": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "id = oem_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "bc1a7488-613d-4bf6-9ca4-2d3cc7454ec3",
+                                    "name": "F35JJKK"
+                                },
+                                {
+                                    "id": "aa8d1f1b-0ca9-4264-8afa-1df0ea8cc806",
+                                    "name": "F34JKK"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/product": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/material/getMaterialSupplier": {
+            "get": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "id = company_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "bc1a7488-613d-4bf6-9ca4-2d3cc7454ec3",
+                                    "name": "T.T"
+                                },
+                                {
+                                    "id": "aa8d1f1b-0ca9-4264-8afa-1df0ea8cc806",
+                                    "name": "T0T"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/material/getMaterialSize": {
+            "get": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "id = company_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "bc1a7488-613d-4bf6-9ca4-2d3cc7454ec3",
+                                    "name": "M"
+                                },
+                                {
+                                    "id": "aa8d1f1b-0ca9-4264-8afa-1df0ea8cc806",
+                                    "name": "5L"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/material/getMaterialSpec": {
+            "get": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "id = company_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "bc1a7488-613d-4bf6-9ca4-2d3cc7454ec3",
+                                    "name": "Spec 5A"
+                                },
+                                {
+                                    "id": "aa8d1f1b-0ca9-4264-8afa-1df0ea8cc806",
+                                    "name": "Spec 4C"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/material/getMaterialType": {
+            "get": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "id = company_id",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "bc1a7488-613d-4bf6-9ca4-2d3cc7454ec3",
+                                    "name": "type 5A"
+                                },
+                                {
+                                    "id": "aa8d1f1b-0ca9-4264-8afa-1df0ea8cc806",
+                                    "name": "type 4C"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/material/importExcel": {
+            "post": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "oem id"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "file",
+                        "type": "file",
+                        "description": "file upload"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "model": "c-Mat0001",
+                                    "status": false,
+                                    "error": "already material no"
+                                },
+                                {
+                                    "model": "c-Mat0006",
+                                    "status": true
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/material/filter": {
+            "post": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "no": "",
+                                "name": "",
+                                "material_type_id": "",
+                                "material_spec_id": "",
+                                "material_size_id": "",
+                                "material_supplier_id": "42d69f3a-1e3a-4e4f-9ede-ba79ab16df57",
+                                "oem_id": ""
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "example": [
+                                {
+                                    "id": "cc0eb114-83f9-4832-bc97-ad8b9a49ba0c",
+                                    "no": "c-mat0002",
+                                    "name": "crop-55b",
+                                    "material_type_id": "55aef18c-fa56-41f8-8373-a973b3b78a40",
+                                    "material_spec_id": "1d45d208-ac0c-4916-a321-13f3317c651b",
+                                    "material_size_id": "3f207bfd-6d76-451a-9ae3-089b6e856aa7",
+                                    "buy_price": 500,
+                                    "material_supplier_id": "42d69f3a-1e3a-4e4f-9ede-ba79ab16df57",
+                                    "material_unit_id": "505a84a4-6c71-4fbf-9dbd-8c63644221f5",
+                                    "amount": 5000,
+                                    "description": "description 001 xjq",
+                                    "remark": "mask mask mask",
+                                    "image": "image01",
+                                    "user_id": "2140bc1b-8fbf-4775-b1e0-a28e1f5cbdfc",
+                                    "oem_id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                    "is_active": true,
+                                    "is_use": true,
+                                    "is_scan_qr": false,
+                                    "create_date": "2020-10-29T01:42:50.378Z",
+                                    "update_date": "2020-10-29T01:42:50.379Z",
+                                    "image_name": "image_name 01",
+                                    "imaget_path": "imaget_path 01"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/material/checkName": {
+            "post": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "mat-001"
+                                },
+                                "oem_id": {
+                                    "type": "string",
+                                    "example": "oem_id"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "boolean",
+                            "example": true
+                        }
+                    }
+                }
+            }
+        },
+        "/material/findById": {
+            "get": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "838f2325-4e2c-4e1e-b493-3dd2826ffaf2",
+                                "no": "c-Mat0005",
+                                "name": "crop-55a1111111",
+                                "material_type_id": "55aef18c-fa56-41f8-8373-a973b3b78a40",
+                                "material_spec_id": "1d45d208-ac0c-4916-a321-13f3317c651b",
+                                "material_size_id": "3f207bfd-6d76-451a-9ae3-089b6e856aa7",
+                                "buy_price": 500,
+                                "material_supplier_id": "42d69f3a-1e3a-4e4f-9ede-ba79ab16df57",
+                                "material_unit_id": "505a84a4-6c71-4fbf-9dbd-8c63644221f5",
+                                "amount": 5000,
+                                "description": "description 001 xjq",
+                                "remark": "mask mask mask",
+                                "image": "image01",
+                                "user_id": "2140bc1b-8fbf-4775-b1e0-a28e1f5cbdfc",
+                                "oem_id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                "is_active": true,
+                                "is_use": true,
+                                "is_scan_qr": false,
+                                "create_date": "2020-10-27T03:57:01.230Z",
+                                "update_date": "2020-10-27T04:01:19.107Z",
+                                "image_name": "image_name 01",
+                                "imaget_path": "imaget_path 01"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/material/del": {
+            "get": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/material/update": {
+            "post": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "838f2325-4e2c-4e1e-b493-3dd2826ffaf2",
+                                "no": "c-mat0001",
+                                "name": "crop-55a1111111",
+                                "material_type_id": "55aef18c-fa56-41f8-8373-a973b3b78a40",
+                                "material_spec_id": "1d45d208-ac0c-4916-a321-13f3317c651b",
+                                "material_size_id": "3f207bfd-6d76-451a-9ae3-089b6e856aa7",
+                                "buy_price": "500",
+                                "material_supplier_id": "42d69f3a-1e3a-4e4f-9ede-ba79ab16df57",
+                                "material_unit_id": "505a84a4-6c71-4fbf-9dbd-8c63644221f5",
+                                "amount": "5000",
+                                "description": "description 001 xjq",
+                                "remark": "mask mask mask",
+                                "image": "image01",
+                                "image_name": "image_name 01",
+                                "imaget_path": "imaget_path 01",
+                                "oem_id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                "is_active": true
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/material/add": {
+            "post": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "no": "c-mat0001",
+                                "name": "crop-55a",
+                                "material_type_id": "55aef18c-fa56-41f8-8373-a973b3b78a40",
+                                "material_spec_id": "1d45d208-ac0c-4916-a321-13f3317c651b",
+                                "material_size_id": "3f207bfd-6d76-451a-9ae3-089b6e856aa7",
+                                "buy_price": "500",
+                                "material_supplier_id": "42d69f3a-1e3a-4e4f-9ede-ba79ab16df57",
+                                "material_unit_id": "505a84a4-6c71-4fbf-9dbd-8c63644221f5",
+                                "amount": "5000",
+                                "description": "description 001 xjq",
+                                "remark": "mask mask mask",
+                                "image": "image01",
+                                "image_name": "image_name 01",
+                                "imaget_path": "imaget_path 01",
+                                "oem_id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                "is_active": true
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/material/": {
+            "get": {
+                "tags": [
+                    "Material"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/company/delUser": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "require id of user",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/company/del": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "require id of company",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/company/checkNameCompany": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "require name of company",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "message": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/company/checkUserName": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "require name of UserName",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "message": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/company/checkEmail": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "require name of email",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "message": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/company/getAllUser": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": [
+                                {
+                                    "id": "2140bc1b-8fbf-4775-b1e0-a28e1f5cbdfc",
+                                    "company_id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                    "company_name": "test company 01 up1",
+                                    "name": "name user01 update",
+                                    "sirname": "sirname user01",
+                                    "username": "user01",
+                                    "email": "email user01",
+                                    "mobile1": "mobile1 user01",
+                                    "mobile2": "mobile2 user01",
+                                    "is_active": true
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/company/updateUser": {
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "2140bc1b-8fbf-4775-b1e0-a28e1f5cbdfc",
+                                "company_id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                "name": "name user01 update",
+                                "sirname": "sirname user01",
+                                "username": "user01",
+                                "email": "email user01",
+                                "password": "1234",
+                                "mobile1": "mobile1 user01",
+                                "mobile2": "mobile2 user01",
+                                "detail": "detail user01 update",
+                                "is_active": true,
+                                "user_profile": "user_profile 01 update",
+                                "user_profile_name": "user_profile_name 02",
+                                "user_profile_path": "user_profile_path 03",
+                                "document": []
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/company/addUser": {
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "company_id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                "name": "name user01",
+                                "sirname": "sirname user01",
+                                "username": "user01",
+                                "email": "email user01",
+                                "password": "1234",
+                                "mobile1": "mobile1 user01",
+                                "mobile2": "mobile2 user01",
+                                "detail": "detail user01",
+                                "is_active": true,
+                                "user_profile": "user_profile 01",
+                                "user_profile_name": "user_profile_name 02",
+                                "user_profile_path": "user_profile_path 03",
+                                "document": [
+                                    {
+                                        "document": "document 1 com1",
+                                        "document_name": "document_name 1 com1",
+                                        "document_path": "document_path 1 com1"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/company/getMasterCompany": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": [
+                                {
+                                    "id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                    "company_name": "test company 01 up1"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/company/findById": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "require id of company",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                "admin_id": "ededb7b7-692a-4a39-84bd-4bf09502ab2c",
+                                "company_name": "test company 01 up1",
+                                "company_detail": "test company detail 01",
+                                "apply_date": "2020-10-21T17:00:00.000Z",
+                                "start_date": "2020-10-21T17:00:00.000Z",
+                                "expire_date": "2020-12-21T17:00:00.000Z",
+                                "is_factory_active": true,
+                                "logo": "logo 1",
+                                "fg_min": 1,
+                                "fg_max": 2,
+                                "raw_min": 3,
+                                "raw_max": 4,
+                                "rank_a": 90,
+                                "rank_b": 80,
+                                "rank_c": 70,
+                                "rank_d": 60,
+                                "factory_capacity": 100,
+                                "create_date": "2020-10-24T17:00:00.000Z",
+                                "is_use": true,
+                                "logo_path": "logo path 1",
+                                "logo_name": "logo name 1",
+                                "document": [
+                                    {
+                                        "id": "a5d309f3-31f8-4d3a-b708-eb4bd531bb38",
+                                        "company_id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                        "document": "document 1 com1",
+                                        "create_date": "2020-10-24T17:00:00.000Z",
+                                        "is_use": true,
+                                        "document_path": "document_path 1 com1",
+                                        "document_name": "document_name 1 com1"
+                                    }
+                                ],
+                                "oem": [
+                                    {
+                                        "id": "0c6437d3-2e60-436c-97de-aaf23ed766a3",
+                                        "company_id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                        "admin_id": "ededb7b7-692a-4a39-84bd-4bf09502ab2c",
+                                        "name": "oem 1 com 1 up1",
+                                        "logo": "logo oem 1",
+                                        "create_date": "2020-10-24T17:00:00.000Z",
+                                        "is_use": true,
+                                        "logo_name": "logo_name oem 1",
+                                        "logo_path": "logo_path oem 1",
+                                        "is_active": true
+                                    },
+                                    {
+                                        "id": "0c6437d3-2e60-436c-97de-aaf23ed766a1",
+                                        "company_id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                        "admin_id": "ededb7b7-692a-4a39-84bd-4bf09502ab2c",
+                                        "name": "oem 1 com 1 up2",
+                                        "logo": "logo oem 2",
+                                        "create_date": "2020-10-24T17:00:00.000Z",
+                                        "is_use": true,
+                                        "logo_name": "logo_name oem 2",
+                                        "logo_path": "logo_path oem 2",
+                                        "is_active": true
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/company/findSetupById": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "require id of company",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": [
+                                {
+                                    "id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                    "admin_id": "ededb7b7-692a-4a39-84bd-4bf09502ab2c",
+                                    "company_name": "test company 01 up1",
+                                    "company_detail": "test company detail 01",
+                                    "apply_date": "2020-10-21T17:00:00.000Z",
+                                    "start_date": "2020-10-21T17:00:00.000Z",
+                                    "expire_date": "2020-12-21T17:00:00.000Z",
+                                    "is_factory_active": true,
+                                    "logo": "logo 1",
+                                    "fg_min": 1,
+                                    "fg_max": 2,
+                                    "raw_min": 3,
+                                    "raw_max": 4,
+                                    "rank_a": 90,
+                                    "rank_b": 80,
+                                    "rank_c": 70,
+                                    "rank_d": 60,
+                                    "factory_capacity": 100,
+                                    "create_date": "2020-10-24T17:00:00.000Z",
+                                    "is_use": true,
+                                    "logo_path": "logo path 1",
+                                    "logo_name": "logo name 1"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/company/setup": {
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                "fg_min": "1",
+                                "fg_max": "2",
+                                "raw_min": "3",
+                                "raw_max": "4",
+                                "rank_a": "90",
+                                "rank_b": "80",
+                                "rank_c": "70",
+                                "rank_d": "60",
+                                "factory_capacity": "100"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/company/update": {
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                "company_name": "test company 01 up1",
+                                "company_detail": "test company detail 01",
+                                "apply_date": "2020-10-22T7:00:00Z",
+                                "start_date": "2020-10-22T7:00:00Z",
+                                "expire_date": "2020-12-22T7:00:00Z",
+                                "is_factory_active": true,
+                                "logo_company": "logo 1",
+                                "logo_company_path": "logo path 1",
+                                "logo_company_name": "logo name 1",
+                                "document": [
+                                    {
+                                        "id": "a5d309f3-31f8-4d3a-b708-eb4bd531bb38",
+                                        "is_use": false,
+                                        "document": "document 1 com1",
+                                        "document_name": "document_name 1 com1",
+                                        "document_path": "document_path 1 com1"
+                                    }
+                                ],
+                                "oem": [
+                                    {
+                                        "id": "0c6437d3-2e60-436c-97de-aaf23ed766a3",
+                                        "name": "oem 1 com 1 up1",
+                                        "logo": "logo oem 1",
+                                        "logo_path": "logo_path oem 1",
+                                        "logo_name": "logo_name oem 1",
+                                        "is_active": true
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/company/add": {
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "company_name": "test company 01",
+                                "company_detail": "test company detail 01",
+                                "apply_date": "2020-10-22T7:00:00Z",
+                                "start_date": "2020-10-22T7:00:00Z",
+                                "expire_date": "2020-12-22T7:00:00Z",
+                                "is_factory_active": true,
+                                "logo_company": "logo 1",
+                                "logo_company_path": "logo path 1",
+                                "logo_company_name": "logo name 1",
+                                "document": [
+                                    {
+                                        "document": "document 1 com1",
+                                        "document_name": "document_name 1 com1",
+                                        "document_path": "document_path 1 com1"
+                                    }
+                                ],
+                                "oem": [
+                                    {
+                                        "name": "oem 1 com 1",
+                                        "logo": "logo oem 1",
+                                        "logo_path": "logo_path oem 1",
+                                        "logo_name": "logo_name oem 1",
+                                        "is_active": true
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/company/filterUser": {
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                               
+                                "company_id": "4e997521-e0b4-4d21-a53c-a59281696c66",
+                                "name": "name user01 update",
+                                "username": "user01",
+                                "email": "email user01",
+                                "password": "1234"
+  
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            
+                            "example": [{
+                                "id": "5b838de5-29d0-48bf-a9df-86918982af1c",
+                                "company_id": "1a947e52-07ad-44fb-baca-aa24741512c3",
+                                "company_name": "Shimizu Thailand",
+                                "name": "พี่เล็ก",
+                                "sirname": "shimizu",
+                                "username": "Shimizu_Komatsu",
+                                "email": "Shimizu_Komatsu@gmail.com",
+                                "mobile1": "+66 85-331-8567",
+                                "mobile2": null,
+                                "is_active": true
+                            }]
+                        }
+                    }
+                }
+            }
+        },
+        "/upload/document": {
+            "post": {
+                "tags": [
+                    "Upload"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "typeFile": {
+                                    "type": "string",
+                                    "example": "company"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "Profile",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "binary"
+                        },
+                        "description": "files upload multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "File is uploaded"
+                                },
+                                "data": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/upload/profile": {
+            "post": {
+                "tags": [
+                    "Upload"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "typeFile": {
+                                    "type": "string",
+                                    "example": "company"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "Profile",
+                        "type": "file",
+                        "description": "file upload"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "File is uploaded"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "orgin_name": {
+                                            "type": "string",
+                                            "example": "file_1.png"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "ca9abdf8-d3eb-41f2-8a84-a5c3a8cd83e1_file_1.jpg"
+                                        },
+                                        "path": {
+                                            "type": "string",
+                                            "example": "Li91cGxvYWRzL2NvbXBhbnkvY2E5YWJkZjgtZDNlYi00MWY"
+                                        },
+                                        "mimetype": {
+                                            "type": "string",
+                                            "example": "image/jpeg"
+                                        },
+                                        "size": {
+                                            "type": "integer",
+                                            "example": 285384
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/upload/excel": {
+            "post": {
+                "tags": [
+                    "Upload"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "typeFile": {
+                                    "type": "string",
+                                    "example": "Excel"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "formData",
+                        "name": "excel",
+                        "type": "file",
+                        "description": "file upload"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "boolean",
+                                    "example": true
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "File is uploaded"
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "orgin_name": {
+                                            "type": "string",
+                                            "example": "file_1.xlsx"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "ca9abdf8-d3eb-41f2-8a84-a5c3a8cd83e1_file_1.xlsx"
+                                        },
+                                        "path": {
+                                            "type": "string",
+                                            "example": "Li91cGxvYWRzL2NvbXBhbnkvY2E5YWJkZjgtZDNlYi00MWY"
+                                        },
+                                        "mimetype": {
+                                            "type": "string",
+                                            "example": "xls/xlsx"
+                                        },
+                                        "size": {
+                                            "type": "integer",
+                                            "example": 285384
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/company/all": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "company_example"
+                                },
+                                "oem": {
+                                    "type": "object",
+                                    "example": {}
+                                },
+                                "apply_date": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                "start_date": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                "expire_date": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login/admin": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "user": {
+                                    "type": "string",
+                                    "example": "admin_example"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "example": "password here!",
+                                    "format": "password"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "message": "login sucess",
+                                "iat": "2020-10-26T10:07:32.503Z",
+                                "exp": "2020-11-02T10:07:32.505Z",
+                                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "user": {
+                                    "type": "string",
+                                    "example": "user_example"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "example": "password here!",
+                                    "format": "password"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "message": "login sucess",
+                                "iat": "2020-10-26T10:07:32.503Z",
+                                "exp": "2020-11-02T10:07:32.505Z",
+                                "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/company": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/project/add": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "project_name":"test_name4444",
+                                "company_id":"4e997521-e0b4-4d21-a53c-a59281696c66",
+                                "contact_name": "",
+                                "contact_tel":"",
+                                "contact_email":"",
+                                "detail":"detail user01 add"
+           
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                    }
+                }
+            }
+        },
+        "/project/update": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "project_name":"test_name4444",
+                                "company_id":"4e997521-e0b4-4d21-a53c-a59281696c66",
+                                "contact_name": "",
+                                "contact_tel":"",
+                                "contact_email":"",
+                                "detail":"detail user01 update"
+           
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                    }
+                }
+            }
+        },
+        "/project/del": {
+            "get": {
+                "tags": [
+                    "Project"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "example": "08160782-eaff-4368-9259-2b7165cb8d31"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true"
+                 
+                    }
+                }
+            }
+        },
+        "/project/findById": {
+            "get": {
+                "tags": [
+                    "Project"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "example": "08160782-eaff-4368-9259-2b7165cb8d31"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "true",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "08160782-eaff-4368-9259-2b7165cb8d31",
+                                "project_name": "test project add345",
+                                "company_id": "1a947e52-07ad-44fb-baca-aa24741512c3",
+                                "contact_name": "4t345",
+                                "contect_tel": "4t345",
+                                "contact_email": "4t345",
+                                "detail": "444t345dfg",
+                                "is_use": true
+                            }
+                        }
+                 
+                    }
+                }
+            }
+        },
+        "/project/GetMenu": {
+            "get": {
+                "tags": [
+                    "Project"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "3d561f20-a54c-4d72-bcb0-2c90a7d27bf6",
+                                "project_name": "name_project_test"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/project/filter": {
+            "post": {
+                "tags": [
+                    "Project"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "project_name":"test_name4444",
+                                "company_id":"4e997521-e0b4-4d21-a53c-a59281696c66"
+            
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": "08160782-eaff-4368-9259-2b7165cb8d31",
+                                "project_name": "test project add345",
+                                "company_id": "1a947e52-07ad-44fb-baca-aa24741512c3",
+                                "contact_name": "4t345",
+                                "contect_tel": "4t345",
+                                "contact_email": "4t345",
+                                "detail": "444t345dfg",
+                                "is_use": true
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    
+    },
+
+
+
+
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ]
+}

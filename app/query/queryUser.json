@@ -1,0 +1,30 @@
+{
+    "getUserById":"SELECT id, company_id, admin_id, name, sirname, username, email, password, mobile1, mobile2, detail, is_active, user_profile, token, token_create, token_expired, create_date, is_use, user_profile_name, user_profile_path FROM identity_user where id = $1;",
+    "update":"UPDATE identity_user SET  name=$2, sirname=$3, email=$4, mobile1=$5, mobile2=$6, detail=$7, user_profile=$8, user_profile_name=$9, user_profile_path=$10 WHERE id = $1;",
+    "checkPS":"SELECT id, company_id, admin_id, name, sirname, username, email, password, mobile1, mobile2, detail, is_active, user_profile, token, token_create, token_expired, create_date, is_use, user_profile_name, user_profile_path FROM identity_user  where id = $1",
+    "changePS":"UPDATE identity_user SET  password=$2 WHERE id = $1;",
+
+
+
+    "checkGenAccount":"SELECT * FROM identity_user WHERE id = $1 AND is_use = true",
+    "checkEmpUser":"SELECT * FROM identity_user WHERE ($1::text is null or username LIKE '%' || $1 || '%') ORDER BY create_date ",
+    "AddIdenUser":"INSERT INTO identity_user(id, company_id, admin_id, name, sirname, username, email, password, mobile1, mobile2, detail, is_active, user_profile, token, token_create, token_expired, create_date, is_use, user_profile_name, user_profile_path, is_passchange) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21);"
+    
+    
+    ,"saveLineApi":"INSERT INTO public.line_login(id, user_id, login_id, password, lastupdated_by, lastupdated_at, line_id, line_img, line_name, token) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);"
+    ,"getEmployee":"SELECT * FROM identity_user WHERE id = $1 AND is_use = true",
+    
+
+    "checkInfoEmpLineByIdLine": "SELECT id, user_id, login_id, password, lastupdated_by, lastupdated_at, line_id, line_img, line_name, token FROM public.line_login WHERE line_id=$1;",
+    "checkIdentityEmpLineById":"SELECT id, company_id, admin_id, name, sirname, username, email, password, mobile1, mobile2, detail, is_active, user_profile, token, token_create, token_expired, create_date, is_use, user_profile_name, user_profile_path, is_passchange FROM public.identity_user WHERE id=$1 AND is_use=true;",
+    "getLineByUserId":"SELECT id, user_id, login_id, password, lastupdated_by, lastupdated_at, line_id, line_img, line_name, token FROM public.line_login WHERE user_id=$1;",
+    "updateLineApi":"UPDATE public.line_login SET user_id=$2, login_id=$3, password=$4, lastupdated_by=$5, lastupdated_at=$6, line_id=$7, line_img=$8, line_name=$9, token=$10 WHERE id=$1;",
+
+    "updateStatusUser":"UPDATE identity_user SET is_use=$2, is_active=$3 WHERE id = $1;",
+
+    "getConfigMenuDefault": "SELECT * FROM config_menu_default WHERE company_id = $1 AND oem_id = $2;",
+    "getConfigFeatureDefault": "SELECT * FROM config_feature_default WHERE company_id = $1 AND oem_id = $2;",
+    "setPermissionOem": "INSERT INTO permission_oem(user_id, oem_id, is_active) VALUES ($1, $2, $3);",
+    "setPermissionMenu": "INSERT INTO permission_menu(menu_id, is_use, user_id) VALUES ($1, $2, $3);",
+    "setPermissionFeature": "INSERT INTO permission_feature(user_id, is_use, feature_id) VALUES ($1, $2, $3);"
+}

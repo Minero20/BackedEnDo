@@ -1,0 +1,41 @@
+{
+    "getAll":"select * from \"company\" where is_use=true",
+    "getAllOEM":"select * from \"oem\" where \"company_id\" = any($1::uuid[]) and is_use=true",
+    "addNewCompany":"insert into \"company\" (id, admin_id, name, detail, apply_date, start_date, expire_date, is_factory_active, logo,logo_path,logo_name, abbr, config, create_date, is_use) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15)",
+    "addDocCompany":"INSERT INTO \"company_document\"(id, company_id, document,document_path,document_name, create_date, is_use)VALUES ($1, $2, $3, $4, $5,$6,$7)"
+    ,"addOEMByCompany":"INSERT INTO \"oem\"(id, company_id, admin_id, name, logo,logo_path,logo_name, create_date, is_use,is_active)VALUES ($1, $2, $3, $4, $5, $6, $7,$8,$9,$10)"
+    ,"updateCompany":"UPDATE \"company\" SET admin_id=$1, name=$2, detail=$3, apply_date=$4, start_date=$5, expire_date=$6, is_factory_active=$7, logo=$8,logo_path=$9,logo_name=$10 , abbr=$11  WHERE id=$12;"
+    ,"updateOEMByCompany":"UPDATE \"oem\" SET admin_id=$1, name=$2, logo=$3,logo_path=$4,logo_name=$5, is_use=$6, is_active=$7 WHERE id =$8"
+    ,"updateDocCompany":"UPDATE \"company_document\" SET is_use=$1 where id=$2"
+    ,"delCompany":"UPDATE \"company\" SET is_use=false where id=$1"
+    ,"delOEMByCompany":"UPDATE \"oem\" set is_use=false where id=$1"
+    ,"delDocCompany":"UPDATE \"company_document\" set is_use=false where id=$1"
+    ,"checkNameCompany":"select name from \"company\" where name ILIKE $1"
+
+    ,"getOEMbyCompanyId":"SELECT id ,name,logo,logo_name,logo_path FROM oem where is_use=true and company_id = $1"
+    ,"getMasterCompany":"select id,name company_name from \"company\" where is_use=true"
+    ,"findCompanyById":"select id, admin_id, name company_name, detail company_detail, apply_date, start_date, expire_date, is_factory_active, logo, fg_min, fg_max, raw_min, raw_max, rank_a, rank_b, rank_c, rank_d, factory_capacity, create_date, is_use, logo_path, logo_name ,abbr ,config,now()::timestamp from \"company\" where id=$1 and is_use=true"
+    ,"findOEMByCompany":"select * from \"oem\" where company_id=$1 and is_use=true"
+    ,"findDocByCompany":"select * from \"company_document\" where company_id=$1 and is_use=true"
+ 
+    ,"setupCompany":"UPDATE \"company\" SET fg_min=$1, fg_max=$2, raw_min=$3, raw_max=$4, rank_a=$5, rank_b=$6, rank_c=$7, rank_d=$8, factory_capacity=$9 , config=$11 WHERE id = $10"
+
+    ,"addUser":"INSERT INTO \"identity_user\" (id, company_id, admin_id, name, sirname, username, email, password, mobile1, mobile2, detail, is_active, user_profile,user_profile_name, user_profile_path, create_date, is_use) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)"
+    ,"addUserDoc":"INSERT INTO \"user_document\"(id, user_id, document,document_name, document_path, create_date, is_use ) VALUES ($1, $2, $3, $4, $5, $6, $7);"
+    ,"delUser":"UPDATE \"identity_user\" SET is_use=false where id=$1"
+    ,"updateUser":"UPDATE \"identity_user\" SET admin_id=$1, name=$2, sirname=$3, username=$4, email=$5, password=$6, mobile1=$7, mobile2=$8, detail=$9, is_active=$10, user_profile=$11, user_profile_name=$12, user_profile_path=$13 WHERE id=$14"
+    ,"delUserDoc":"UPDATE \"user_document\" set is_use=false where id=$1"
+    ,"findUserById":"SELECT use.id, company_id,com.name as company_name, use.name, sirname, username, email, password, mobile1, mobile2, use.detail,is_active, user_profile, use.is_use, user_profile_name, user_profile_path FROM identity_user use LEFT JOIN company com on com.id= use.company_id where use.id=$1" 
+    ,"findDocByUser":"SELECT id, user_id, document, create_date, is_use, document_name, document_path FROM user_document where user_id=$1 and is_use=true"
+    ,"getAllUser":"SELECT u.id, u.company_id,c.name company_name, u.name, u.sirname, u.username, u.email, u.mobile1, u.mobile2, u.is_active FROM \"identity_user\" u inner join \"company\" c on c.id=u.company_id where u.is_use=true"
+    ,"filterUser":"SELECT u.id, u.company_id,c.name company_name, u.name, u.sirname, u.username, u.email, u.mobile1, u.mobile2, u.is_active FROM \"identity_user\" u inner join \"company\" c on c.id=u.company_id where u.is_use=true and ($1::text is null or u.name ILIKE '%' || $1 || '%') and ($2::text is null or u.username ILIKE '%' || $2 || '%') and ($3::text is null or u.email ILIKE '%' || $3 || '%') and ($4::uuid is null or u.company_id = $4)"
+    ,"checkUsername":"select username from \"identity_user\" where username ILIKE $1"
+    ,"checkEmail":"select email from \"identity_user\" where email ILIKE $1"
+    ,"checkUsernameEmail":"select 1 from identity_user where 1=1 and ($1::text is null or username ILIKE $1) or ($2::text is null or email ILIKE $2)"
+   
+    ,"getCapacityFactory":"select factory_capacity from company where id=$1"
+    ,"getviewOemByUserId":"SELECT id, user_id, oem_id, is_active FROM permission_oem WHERE user_id = $1 AND is_active = true;",
+
+    "getUserDetailByUser":"SELECT a.id, a.company_id, a.name, a.sirname, a.username,b.name as company_name FROM identity_user a left join company b on a.company_id = b.id WHERE a.id = $1;",
+    "getOemByCompany":"SELECT id, company_id, admin_id, name, logo, create_date, is_use, logo_name, logo_path, is_active FROM oem WHERE company_id = $1;"
+}

@@ -1,0 +1,44 @@
+{
+    "dbConnect":{
+        "user":"postgres",
+        "host": "150.95.80.78",
+        "database": "64B_PMRP_Dev",
+        "password": "MyTTT@1234",
+        "port":5432,
+        "max": 10,
+        "idleTimeoutMillis": 30000,
+        "connectionTimeoutMillis": 5000
+    },
+    "dbLogConnect":{
+        "user":"postgres",
+        "host": "150.95.80.78",
+        "database": "64B_PMRP_LOG_Dev",
+        "password": "MyTTT@1234",
+        "port":5432,
+        "max": 10,
+        "idleTimeoutMillis": 30000,
+        "connectionTimeoutMillis": 2000
+    },
+    "FTPConnect":{
+        "host": "www.bkc.co.th" ,
+        "user": "bkc_supplier",
+        "password": "t2bR9[wwD{",
+        "remotePath": "/bkc-supplier/FC/forecast_tszm.xlsx",
+        "localPath":"./app/ftp/forecast_tszm.xlsx"
+   },
+    "host":"localhost",
+    "port":"4000",
+    "jwtSecret":"SECRET_KEY_IS_XXX",
+    "customHeaderKey":"20EC2A2BA3ED2470C11AC4E78461189769DEEAFBDC0D209709897902E6042D44",
+    "userSwagger":"TTT",
+    "passwordSwagger":"2kkf0cq83t",
+    "fixData":{
+        "material_unit":{
+            "Piece":"505a84a4-6c71-4fbf-9dbd-8c63644221f5",
+            "Weight":"6fac9f35-9749-476d-a24a-4c33061e59b7"
+        }
+    },
+    "logAccessPath":"./logs/"
+    ,
+    "passwordAcademy":"1234"
+}
