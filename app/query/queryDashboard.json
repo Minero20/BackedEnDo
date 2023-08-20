@@ -1,52 +1,12 @@
 {
-    "getCurrentData":"SELECT * FROM ic_monitors",
-    "getHistory":"SELECT m.ims_name, m.ims_id, m.ims_frequency_api, h.ihs_power, h.ihs_energy, h.ihs_voltage, h.ihs_current, h.ihs_frequency, h.ihs_timestamp FROM ic_monitors as m JOIN ic_histories h ON h.ihs_monitor_id = m.ims_id;",
-    
-    "getVoltageDayById":"SELECT ihs_monitor_id, ihs_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE(ihs_timestamp) = $2;",
-    "getCurrentDayById":"SELECT ihs_monitor_id, ihs_current FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE(ihs_timestamp) = $2;",
-    "getFrequencyDayById":"SELECT ihs_monitor_id, ihs_frequency FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE(ihs_timestamp) = $2;",
-    "getEnergyDayById":"SELECT ihs_monitor_id, ihs_energy FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE(ihs_timestamp) = $2;",
-    "getPowerDayById":"SELECT ihs_monitor_id, ihs_power FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE(ihs_timestamp) = $2;",
-    
-    "getVoltageMonthById":"SELECT DATE_TRUNC('day', ihs_timestamp) AS day, SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('month', ihs_timestamp) = DATE_TRUNC('month', $2::date) GROUP BY day ORDER BY day;",
-    "getCurrentMonthById":"SELECT DATE_TRUNC('day', ihs_timestamp) AS day, SUM(ihs_current::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('month', ihs_timestamp) = DATE_TRUNC('month', $2::date) GROUP BY day ORDER BY day;",
-    "getFrequencyMonthById":"SELECT DATE_TRUNC('day', ihs_timestamp) AS day, SUM(ihs_frequency::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('month', ihs_timestamp) = DATE_TRUNC('month', $2::date) GROUP BY day ORDER BY day;",
-    "getEnergyMonthById":"SELECT DATE_TRUNC('day', ihs_timestamp) AS day, SUM(ihs_energy::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('month', ihs_timestamp) = DATE_TRUNC('month', $2::date) GROUP BY day ORDER BY day;",
-    "getPowerMonthById":"SELECT DATE_TRUNC('day', ihs_timestamp) AS day, SUM(ihs_power::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('month', ihs_timestamp) = DATE_TRUNC('month', $2::date) GROUP BY day ORDER BY day;",
+    "getDayById":"SELECT im.ims_monitor_id, ihs_voltage, ihs_current, ihs_frequency, ihs_energy, ihs_power FROM ic_histories AS ih INNER JOIN ic_monitors AS im ON ih.ihs_monitor_id = im.ims_id WHERE ims_monitor_id = $1 AND DATE(ihs_timestamp) = $2::date;",
+    "getMonthById":"SELECT im.ims_monitor_id, SUM(ihs_voltage::numeric) AS ihs_voltage, SUM(ihs_current::numeric) AS ihs_current, SUM(ihs_frequency::numeric) AS ihs_frequency, SUM(ihs_energy::numeric) AS ihs_energy, SUM(ihs_power::numeric) AS ihs_power FROM ic_histories AS ih INNER JOIN ic_monitors AS im ON ih.ihs_monitor_id = im.ims_id WHERE ims_monitor_id = $1 AND DATE_TRUNC('month', ihs_timestamp) = DATE_TRUNC('month', $2::date) AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $2::date) GROUP BY DATE_TRUNC('day', ihs_timestamp), im.ims_monitor_id ORDER BY DATE_TRUNC('day', ihs_timestamp);",
+    "getYearById":"SELECT im.ims_monitor_id, SUM(ihs_voltage::numeric) AS ihs_voltage, SUM(ihs_current::numeric) AS ihs_current, SUM(ihs_frequency::numeric) AS ihs_frequency, SUM(ihs_energy::numeric) AS ihs_energy, SUM(ihs_power::numeric) AS ihs_power FROM ic_histories AS ih INNER JOIN ic_monitors AS im ON ih.ihs_monitor_id = im.ims_id WHERE ims_monitor_id = $1 AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $2::date) GROUP BY DATE_TRUNC('month', ihs_timestamp), im.ims_monitor_id ORDER BY DATE_TRUNC('month', ihs_timestamp);",
 
-    "getVoltageYearById":"SELECT DATE_TRUNC('month', ihs_timestamp) AS month, SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $2::date) GROUP BY month ORDER BY month;",
-    "getCurrentYearById":"SELECT DATE_TRUNC('month', ihs_timestamp) AS month, SUM(ihs_current::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $2::date) GROUP BY month ORDER BY month;",
-    "getFrequencyYearById":"SELECT DATE_TRUNC('month', ihs_timestamp) AS month, SUM(ihs_frequency::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $2::date) GROUP BY month ORDER BY month;",
-    "getEnergyYearById":"SELECT DATE_TRUNC('month', ihs_timestamp) AS month, SUM(ihs_energy::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $2::date) GROUP BY month ORDER BY month;",
-    "getPowerYearById":"SELECT DATE_TRUNC('month', ihs_timestamp) AS month, SUM(ihs_power::numeric) AS total_voltage FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $2::date) GROUP BY month ORDER BY month;",
+    "getDayTotal":"SELECT SUM(ihs_current::numeric) AS total_current FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
+    "getMonthTotal":"SELECT SUM(ihs_current::numeric) AS total_current FROM ic_histories WHERE DATE_TRUNC('month', ihs_timestamp) = DATE_TRUNC('month', $1::date) AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $1::date);",
+    "getYearTotal":"SELECT SUM(ihs_current::numeric) AS total_current FROM ic_histories WHERE DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $1::date);",
+    "getEntireEnergy":"SELECT SUM(ihs_current::numeric) AS total_current FROM ic_histories;",
 
-    "getDayById":"SELECT ihs_monitor_id, ihs_voltage, ihs_current, ihs_frequency, ihs_energy, ihs_power FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE(ihs_timestamp) = $2;",
-    "getMonthById":"SELECT ihs_monitor_id, SUM(ihs_voltage::numeric) AS ihs_voltage, SUM(ihs_current::numeric) AS ihs_current, SUM(ihs_frequency::numeric) AS ihs_frequency, SUM(ihs_energy::numeric) AS ihs_energy, SUM(ihs_power::numeric) AS ihs_power FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('month', ihs_timestamp) = DATE_TRUNC('month', $2::date) AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $2::date) GROUP BY DATE_TRUNC('day', ihs_timestamp), ihs_monitor_id  ORDER BY DATE_TRUNC('day', ihs_timestamp);",
-    "getYearById":"SELECT ihs_monitor_id, SUM(ihs_voltage::numeric) AS ihs_voltage, SUM(ihs_current::numeric) AS ihs_current, SUM(ihs_frequency::numeric) AS ihs_frequency, SUM(ihs_energy::numeric) AS ihs_energy, SUM(ihs_power::numeric) AS ihs_power FROM ic_histories WHERE ihs_monitor_id IN (SELECT ims_id FROM ic_monitors WHERE ims_monitor_id = $1) AND DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $2::date) GROUP BY DATE_TRUNC('month', ihs_timestamp), ihs_monitor_id ORDER BY DATE_TRUNC('month', ihs_timestamp);",
-
-    "getDayTotal":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getMonthTotal":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE_TRUNC('month', ihs_timestamp) = DATE_TRUNC('month', $1::date);",
-    "getYearTotal":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE_TRUNC('year', ihs_timestamp) = DATE_TRUNC('year', $1::date);",
-    "getEntireEnergy":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories;",
-
-    "getVoltageDaySixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getCurrentDaySixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getFrequencyDaySixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getEnergyDaySixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getPowerDaySixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-
-    "getVoltageMonthSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getCurrentMonthSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getFrequencyMonthSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getEnergyMonthSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getPowerMonthSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-
-    "getVoltageYearSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getCurrentYearSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getFrequencyYearSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getEnergyYearSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-    "getPowerYearSixMost":"SELECT SUM(ihs_voltage::numeric) AS total_voltage FROM ic_histories WHERE DATE(ihs_timestamp) = $1::date;",
-
-    "getMonitorById":"SELECT ihs_current FROM ic_histories where ihs_monitor_id = $1",
-    "add":"INSERT INTO \"ic_monitors\" (ims_id, ims_name, ims_location, ims_in_use, ims_status, ims_frequency_api, ims_remark, ims_detail, ims_create_by, ims_create_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)"
+    "getSixMostCurrentConsume":"WITH MonitorCurrents AS (SELECT ihs_monitor_id, SUM(ihs_current::numeric) AS total_current FROM ic_histories GROUP BY ihs_monitor_id ORDER BY total_current DESC LIMIT 6) SELECT im.ims_monitor_id, ihs_voltage, ihs_current, ihs_frequency, ihs_energy, ihs_power FROM ic_histories AS ih INNER JOIN MonitorCurrents AS ih1 ON ih1.ihs_monitor_id = ih.ihs_monitor_id INNER JOIN ic_monitors AS im ON ih.ihs_monitor_id = im.ims_id AND DATE(ihs_timestamp) = now()::date;"
 }
